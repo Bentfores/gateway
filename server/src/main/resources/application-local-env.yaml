@@ -1,0 +1,28 @@
+---
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8443/realms/local
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+service:
+  bentfores-facade:
+    uri: http://localhost:8083/
+    cors:
+      allowedOriginPatterns: '*'
+      allowedMethods:
+        - GET
+        - POST
+        - PATCH
+        - PUT
+      allowedHeaders:
+        - Authorization
+        - Content-Type
+        - X-Requested-With
+        - Platform

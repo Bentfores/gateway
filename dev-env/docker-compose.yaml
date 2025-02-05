@@ -1,0 +1,33 @@
+---
+name: $SERVICE_NAME
+
+services:
+  redis-server:
+    container_name: redis
+    image: redis:latest
+    command: redis-server
+    ports:
+      - "6379:6379"
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:25.0
+    container_name: "${SERVICE_NAME}_keycloak"
+    environment:
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_PORT: 8080
+      KC_HOSTNAME_STRICT_BACKCHANNEL: false
+      KC_DB_VENDOR: h2
+      KC_HTTP_ENABLED: true
+      KC_HTTPS_ENABLED: false
+      KC_HOSTNAME_STRICT_HTTPS: false
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KEYCLOAK_IMPORT: /opt/keycloak/data/import/local.json
+    command: start-dev --import-realm
+    volumes:
+      - ./keycloak/local.json:/opt/keycloak/data/import/local.json
+      - ./themes/:/opt/keycloak/themes/
+    ports:
+      - "8443:8080"
+volumes:
+  redis-data: {}

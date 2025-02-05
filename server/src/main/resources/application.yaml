@@ -1,0 +1,26 @@
+---
+spring:
+  cache:
+    type: redis
+    enabled: false
+
+  main:
+    allow-bean-definition-overriding: true
+
+#  cloud:
+#    gateway:
+#      default-filters:
+#        - TokenRelay
+#        - StripPrefix=1
+#      routes:
+#        - id: bentfores-facade
+#          uri: ${service.bentfores-facade.uri}
+#          predicates:
+#            - Path=/bot-manager/**
+#          filters:
+#            - RedisFilter
+#          metadata:
+#            cors:
+#              allowedOriginPatterns: ${service.bentfores-facade.cors.allowedOriginPatterns}
+#              allowedMethods: ${service.bentfores-facade.cors.allowedMethods}
+#              allowedHeaders: ${service.bentfores-facade.cors.allowedHeaders}
