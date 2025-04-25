@@ -33,12 +33,11 @@ class CorsConfig(
       .collectList()
       .map { configurations ->
         UrlBasedCorsConfigurationSource().apply {
-          configurations.forEach { configuration ->
-            this.registerCorsConfiguration(
-              getPathFromRoute(configuration.t2),
-              configuration.t1
-            )
-          }
+          val conf = configurations.first()
+          this.registerCorsConfiguration(
+            "/**",
+            conf.t1
+          )
         }
       }
       .block()!!

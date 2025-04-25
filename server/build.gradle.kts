@@ -10,16 +10,20 @@ dependencies {
   implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
   implementation("org.jetbrains.kotlin:kotlin-reflect")
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-  implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j")
+//  implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j")
   implementation("org.springframework.cloud:spring-cloud-starter-gateway")
-  implementation ("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
-  implementation ("org.springframework.boot:spring-boot-starter-oauth2-client")
-  implementation ("org.springframework.session:spring-session-data-redis")
-  implementation ("org.springframework.boot:spring-boot-starter-data-redis")
+//  implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
+//  implementation ("org.springframework.session:spring-session-data-redis")
+//  implementation ("org.springframework.boot:spring-boot-starter-data-redis ")
   implementation ("jakarta.servlet:jakarta.servlet-api")
   implementation("io.github.oshai:kotlin-logging-jvm")
   implementation("org.zalando:logbook-spring-boot-starter")
   implementation("net.logstash.logback:logstash-logback-encoder")
+  implementation(
+    group = "io.netty",
+    name = "netty-resolver-dns-native-macos",
+    classifier = "osx-aarch_64"
+  )
 
   testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

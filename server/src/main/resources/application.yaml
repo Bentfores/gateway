@@ -1,8 +1,8 @@
 ---
 spring:
-  cache:
-    type: redis
-    enabled: false
+#  cache:
+#    type: redis
+#    enabled: false
 
   main:
     allow-bean-definition-overriding: true
