@@ -109,7 +109,7 @@ spring:
         registration:
           keycloak:
             client-id: gateway
-            client-secret: NizEpIhcIv55xkfS8sTnSmtIMszDdYIv
+            client-secret: secret
             redirect-uri: http://localhost:3000/not_processed
             authorization-grant-type: authorization_code
             scope: openid
